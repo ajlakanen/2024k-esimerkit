@@ -1,4 +1,4 @@
-# Ohjelmointi 1 (2023 kevät), luennolla käsitellyt esimerkit
+# Ohjelmointi 1 (2024 kevät), luennolla käsitellyt esimerkit
 
 Tämä tietovarasto sisältää luennoilla tehdyt esimerkkiohjelmien koodit. Esimerkkejä on saatettu täydentää luennon jälkeen esimerkiksi dokumentaatioiden osalta.
 
@@ -9,7 +9,7 @@ Avaa komentorivi, kuten Git Bash, Pääte tai vastaava. Tee tietokoneellesi uusi
 Anna sitten komento
 
 ```
-git clone https://gitlab.jyu.fi/tie/ohj1/2023k/esimerkit.git .
+git clone https://gitlab.jyu.fi/tie/ohj1/2024k/esimerkit.git .
 ```
 
 ## Uusien esimerkkien lataaminen
@@ -31,4 +31,4 @@ git reset --hard origin/master
 
 ## Luentojen taltioinnit
 
-Luentotaltiointeja pääset seuraamaan [kurssin Youtube-kanavalla](https://www.youtube.com/playlist?list=PLHD9Pwp62utlc3jDn932DiFnA61qOFN3Q).
+Luentotaltiointeja pääset seuraamaan [kurssin Youtube-kanavalla](https://www.youtube.com/playlist?list=PLHD9Pwp62utmbvtO80bM-WFpSyHYM9imw).
