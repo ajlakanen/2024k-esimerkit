@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lumiukot", "Lumiukot\Lumiukot.csproj", "{B6C4FEAA-8531-4693-9D63-536BDC0056E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TulostaTietoja", "TulostaTietoja\TulostaTietoja.csproj", "{5FFB6C3F-E5A7-4C9F-9153-38D57868BBC1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B6C4FEAA-8531-4693-9D63-536BDC0056E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6C4FEAA-8531-4693-9D63-536BDC0056E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6C4FEAA-8531-4693-9D63-536BDC0056E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6C4FEAA-8531-4693-9D63-536BDC0056E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FFB6C3F-E5A7-4C9F-9153-38D57868BBC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FFB6C3F-E5A7-4C9F-9153-38D57868BBC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FFB6C3F-E5A7-4C9F-9153-38D57868BBC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FFB6C3F-E5A7-4C9F-9153-38D57868BBC1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
