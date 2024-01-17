@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Muuttujat", "Muuttujat\Muuttujat.csproj", "{32F67BE6-4840-4782-9AA6-78514D2AD6DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lumiukot", "Lumiukot\Lumiukot.csproj", "{87483D8D-D190-4E46-A53C-33B71D9AEE0D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{32F67BE6-4840-4782-9AA6-78514D2AD6DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32F67BE6-4840-4782-9AA6-78514D2AD6DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32F67BE6-4840-4782-9AA6-78514D2AD6DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32F67BE6-4840-4782-9AA6-78514D2AD6DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87483D8D-D190-4E46-A53C-33B71D9AEE0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87483D8D-D190-4E46-A53C-33B71D9AEE0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87483D8D-D190-4E46-A53C-33B71D9AEE0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87483D8D-D190-4E46-A53C-33B71D9AEE0D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
