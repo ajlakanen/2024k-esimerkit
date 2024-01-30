@@ -6,23 +6,30 @@ using System.Collections.Generic;
 /// @author Omanimi
 /// @version 24.01.2024
 /// <summary>
-/// 
+/// Luento 6.
+/// Ehtolauseita.
 /// </summary>
 public class Ehtolauseita
 {
     /// <summary>
-    /// 
+    /// Ehtolauseita.
     /// </summary>
     public static void Main()
     {
-        #region Esimerkki1
-
+        #region Esimerkki1: Salasanan syöttäminen
+        // Sivuhuomio: Älä koskaan oikeasti kirjoita salasanoja
+        // tai muitakaan salaisuuksia koodiin tällä tavalla!
         string salasana = "Jypeli";
         Console.Write("Anna salasana > ");
         string syotettySalasana = Console.ReadLine();
+
+        // kaksi on-yhtäkuin-merkkiä on C#:ssa vertailuoperaattori
+        // Tässä vertaillaan siis merkkijonojen sisältöjä toisiinsa.
+        // Huomaa, että tämä vertailu ei päde kaikissa ohj.kielissä.
         if (salasana == syotettySalasana)
         {
-            // Jos salasana on syötetty oikein, mennään tänne
+            // jos syötetty syöte on sama kuin salasana
+            // niin tämä lohko toteutetaan
             Console.WriteLine("Salasana on oikein!");
         }
         else
@@ -34,8 +41,12 @@ public class Ehtolauseita
 
         #endregion
 
-        #region Esimerkki2
+        #region Esimerkki2: if-elseif-else
 
+        // Rajapyykit: >=140 -> ABC
+        //             >=120 mutta alle < 140 -> A, mutta EI BC
+        //             < 120 -> ei pääse mihinkään.
+        
         double henkilonPituus = 215.0;
 
         if (henkilonPituus >= 140.0)
@@ -59,10 +70,12 @@ public class Ehtolauseita
 
         #endregion
 
-        #region Esimerkki3
+        #region Esimerkki3: Useita perättäisiä if-lauseita.
+
         Console.Write("Anna ikä > ");
         string syote = Console.ReadLine();
-        int ika = int.Parse(syote);
+        //int ika = syote; // Tämä ei onnistu!
+        int ika = int.Parse(syote); // Kokonaisluku täytyy "parsia" (eli muuttaa) käyttäjän antamasta syötteestä.  
 
         // Eri mallisia syötteitä voitaisiin parsia seuraavasti
         // double.Parse(syote) // syöte sisältäisi desimaaliluvun
