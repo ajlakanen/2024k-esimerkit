@@ -23,6 +23,7 @@ public class Taulukot
         int luento4 = 50;
         int luento5 = 57;
 
+        // Lasketaan luennolla kävijöiden keskiarvo
         int summa = luento1 + luento2 + luento3 + luento4 + luento5;
         double keskiarvo = summa / 5.0;
         Console.WriteLine($"Luennoille osallistui keskimäärin {keskiarvo} opiskelijaa.");
@@ -45,6 +46,7 @@ public class Taulukot
         // Käymme läpi taulukkoa alkaen indeksistä 0, ja päättyen indeksiin "Length"
         for (int i = 0; i < luentojenOsallistujat.Length; i++)
         {
+            // Tulostetaan aluksi kullekin luennolle osallistujien lkm
             // Console.WriteLine($"Paikassa {i} on luku: {luentojenOsallistujat[i]}");
             summa3 += luentojenOsallistujat[i];
         }
