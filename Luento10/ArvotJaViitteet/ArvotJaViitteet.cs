@@ -15,5 +15,12 @@ public class ArvotJaViitteet
     /// </summary>
     public static void Main()
     {
+        int a = 3;
+        int b = a;
+        b = b + 1;
+
+        int[] taulukko1 = { 1, 2, 3 };
+        int[] taulukko2 = taulukko1;
+        taulukko2[1] = 4;
     }
 }

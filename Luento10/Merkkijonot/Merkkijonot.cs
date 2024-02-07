@@ -15,5 +15,6 @@ public class Merkkijonot
     /// </summary>
     public static void Main()
     {
+        // Ei käsitelty luennolla 10
     }
 }
