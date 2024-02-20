@@ -14,13 +14,14 @@ public class Palikat : PhysicsGame
 {
     public override void Begin()
     {
+        
         Level.Size = new Vector(1920, 1080);
         SetWindowSize(1920, 1080);
         Level.Background.Color = Color.DarkAzure;
         Level.CreateBorders();
         CenterWindow();
 
-        PhysicsObject pelaaja = new PhysicsObject(60, 60, Shape.Circle); // 
+        PhysicsObject pelaaja = new PhysicsObject(60, 60, Shape.Circle);
         Add(pelaaja);
 
         for (int i = 0; i < 20; i++)
@@ -28,6 +29,8 @@ public class Palikat : PhysicsGame
             Color[] varit = { Color.Red, Color.Yellow, Color.Green };
             Palikka palikka = new Palikka(50, 50, varit);
             palikka.Position = RandomGen.NextVector(Level.BoundingRect);
+            // Törmäystapahtumat Jypelissä: 
+            // https://tim.jyu.fi/view/kurssit/jypeli/tapahtumat/tormaykset
             AddCollisionHandler<PhysicsObject, Palikka>(pelaaja, palikka, TormattiinPalikkaan);
             Add(palikka);
         }

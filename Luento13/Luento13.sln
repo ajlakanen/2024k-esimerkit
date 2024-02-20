@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Matriisit", "Matriisit\Matriisit.csproj", "{7E24B621-1B3E-4CD0-885C-4EE362848A90}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuokattavatMerkkijonot", "MuokattavatMerkkijonot\MuokattavatMerkkijonot.csproj", "{7728F4B4-7E0D-46BF-9CE2-088D6FCDD3B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PelottavaPeli", "PelottavaPeli\PelottavaPeli.csproj", "{FF153247-BC6A-403E-A1F0-59E534FDC9DF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7E24B621-1B3E-4CD0-885C-4EE362848A90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E24B621-1B3E-4CD0-885C-4EE362848A90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E24B621-1B3E-4CD0-885C-4EE362848A90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E24B621-1B3E-4CD0-885C-4EE362848A90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7728F4B4-7E0D-46BF-9CE2-088D6FCDD3B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7728F4B4-7E0D-46BF-9CE2-088D6FCDD3B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7728F4B4-7E0D-46BF-9CE2-088D6FCDD3B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7728F4B4-7E0D-46BF-9CE2-088D6FCDD3B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF153247-BC6A-403E-A1F0-59E534FDC9DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF153247-BC6A-403E-A1F0-59E534FDC9DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF153247-BC6A-403E-A1F0-59E534FDC9DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF153247-BC6A-403E-A1F0-59E534FDC9DF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
