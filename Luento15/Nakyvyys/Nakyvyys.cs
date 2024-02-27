@@ -68,11 +68,26 @@ public class Nakyvyys
         Console.WriteLine(luku3);
     }
 
+    /// <summary>
+    /// Tämän aliohjelman avulla demonstroidaan sitä,
+    /// että arvopohjaista muuttujaa (tässä int-tyyppinen)
+    /// ei voi muuttaa parametrin välityksen kautta. 
+    /// </summary>
+    /// <param name="munLuku">Luku</param>
     public static void MuutaLukua(int munLuku)
     {
         munLuku = 5;
     }
     
+    /// <summary>
+    /// Aliohjelma, joka ei muuta parametrina saamaansa tietoa,
+    /// vaan luo uuden listan, ja palauttaa tämän uuden listan,
+    /// johon muutos on tehty. 
+    /// </summary>
+    /// <param name="lista">Luvut</param>
+    /// <param name="a">Paikka a</param>
+    /// <param name="b">Paikka b</param>
+    /// <returns>Uusi lista, johon muutos on tehty</returns>
     public static List<int> MuutaPaikkoja(List<int> lista, int a, int b)
     {
         List<int> uusiLista = new List<int>(lista);
@@ -101,7 +116,11 @@ public class Nakyvyys
         luvut[a] = vaihdettava2;
 
     }
-    
+ 
+    /// <summary>
+    /// Aliohjelma, jonka avulla demonstroidaan staattisen
+    /// luokkamuuttujan käyttöä. 
+    /// </summary>
     public static void A()
     {
         // luku++; // Tämä ei onnistu, koska luku on paikallinen Mainissa
