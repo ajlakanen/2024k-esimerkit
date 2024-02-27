@@ -9,7 +9,7 @@ def muutaLukua(munLuku):
 lista = [1, 2, 3]
 print(lista)
 muutaListaa(lista)
-# Lista on muuttunut aliohjelmalle välitetään
+# Lista on muuttunut, koska aliohjelmalle välitetään
 # kutsussa lista-olion viite. Tällöin muutaListaa
 # käsittelee tätä viitteenä saatua tietoa, ja muuttaa
 # alkuperäisen listan sisältöä
