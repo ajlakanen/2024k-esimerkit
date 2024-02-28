@@ -3,15 +3,13 @@ using System.Text;
 using System.Linq;
 using System.Collections.Generic;
 
-/// @author Omanimi
-/// @version 28.02.2024
 /// <summary>
-/// 
+/// Luento 16. Rekursio.
 /// </summary>
 public class Rekursio
 {
     /// <summary>
-    /// 
+    /// Kutsut ja alustukset
     /// </summary>
     public static void Main()
     {
