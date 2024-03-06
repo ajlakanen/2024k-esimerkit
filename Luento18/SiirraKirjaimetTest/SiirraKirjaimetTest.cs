@@ -1,0 +1,178 @@
+// ReSharper disable all
+using System;
+using System.Text;
+using System.Linq;
+using System.Collections.Generic;
+using NUnit.Framework;
+using static SiirraKirjaimet;
+
+	[TestFixture]
+	[DefaultFloatingPointTolerance(0.000001)]
+	public  class TestSiirraKirjaimet
+	{
+		[Test]
+		public  void Teststatic44()
+		{
+			string aineisto = "kissa istuu";
+			(string loydetyt, string uusiAineisto) = new ValueTuple<string, string>();
+			(loydetyt, uusiAineisto) = SiirraMerkit2(aineisto, "", 1);;
+			;
+			;
+			;
+			;
+			Assert.AreEqual( "",  loydetyt , "in method static, line 47");;
+			;
+			;
+			;
+			;
+			Assert.AreEqual( "kissa istuu",  uusiAineisto , "in method static, line 47");
+			(loydetyt, uusiAineisto) = SiirraMerkit2(uusiAineisto, "xyz", 1);;
+			;
+			;
+			;
+			;
+			Assert.AreEqual( "",  loydetyt , "in method static, line 48");;
+			;
+			;
+			;
+			;
+			Assert.AreEqual( "kissa istuu",  uusiAineisto , "in method static, line 48");
+			(loydetyt, uusiAineisto) = SiirraMerkit2(uusiAineisto, "i", 1);;
+			;
+			;
+			;
+			;
+			Assert.AreEqual( "i",  loydetyt , "in method static, line 49");;
+			;
+			;
+			;
+			;
+			Assert.AreEqual( "kssa istuu",  uusiAineisto , "in method static, line 49");
+			(loydetyt, uusiAineisto) = SiirraMerkit2(uusiAineisto, "s", 2);;
+			;
+			;
+			;
+			;
+			Assert.AreEqual( "ss",  loydetyt , "in method static, line 50");;
+			;
+			;
+			;
+			;
+			Assert.AreEqual( "ka istuu",  uusiAineisto , "in method static, line 50");
+			(loydetyt, uusiAineisto) = SiirraMerkit2(uusiAineisto, "aus", 3);;
+			;
+			;
+			;
+			;
+			Assert.AreEqual( "asu",  loydetyt , "in method static, line 51");;
+			;
+			;
+			;
+			;
+			Assert.AreEqual( "k itu",  uusiAineisto , "in method static, line 51");
+			(loydetyt, uusiAineisto) = SiirraMerkit2(uusiAineisto, "iu", 3);;
+			;
+			;
+			;
+			;
+			Assert.AreEqual( "iu",  loydetyt , "in method static, line 52");;
+			;
+			;
+			;
+			;
+			Assert.AreEqual( "k t",  uusiAineisto , "in method static, line 52");
+			(loydetyt, uusiAineisto) = SiirraMerkit2(uusiAineisto, " ", 3);;
+			;
+			;
+			;
+			;
+			Assert.AreEqual( " ",  loydetyt , "in method static, line 53");;
+			;
+			;
+			;
+			;
+			Assert.AreEqual( "kt",  uusiAineisto , "in method static, line 53");
+			(loydetyt, uusiAineisto) = SiirraMerkit2(uusiAineisto, "tk", 3);;
+			;
+			;
+			;
+			;
+			Assert.AreEqual( "kt",  loydetyt , "in method static, line 54");;
+			;
+			;
+			;
+			;
+			Assert.AreEqual( "",  uusiAineisto , "in method static, line 54");
+			(loydetyt, uusiAineisto) = SiirraMerkit2(uusiAineisto, "tk", 3);;
+			;
+			;
+			;
+			;
+			Assert.AreEqual( "",  loydetyt , "in method static, line 55");;
+			;
+			;
+			;
+			;
+			Assert.AreEqual( "",  uusiAineisto , "in method static, line 55");
+		}
+		[Test]
+		public  void TestSiirraMerkit92()
+		{
+			StringBuilder jono = new StringBuilder("kissa istuu");
+			Assert.AreEqual( "", SiirraMerkit(jono, "", 1) , "in method SiirraMerkit, line 94");;
+			;
+			;
+			;
+			;
+			Assert.AreEqual( "kissa istuu",  jono.ToString() , "in method SiirraMerkit, line 94");
+			Assert.AreEqual( "", SiirraMerkit(jono, "xyz", 1) , "in method SiirraMerkit, line 95");;
+			;
+			;
+			;
+			;
+			Assert.AreEqual( "kissa istuu",  jono.ToString() , "in method SiirraMerkit, line 95");
+			Assert.AreEqual( "i", SiirraMerkit(jono, "i", 1) , "in method SiirraMerkit, line 96");;
+			;
+			;
+			;
+			;
+			Assert.AreEqual( "kssa istuu",  jono.ToString() , "in method SiirraMerkit, line 96");
+			Assert.AreEqual( "ss", SiirraMerkit(jono, "s", 2) , "in method SiirraMerkit, line 97");;
+			;
+			;
+			;
+			;
+			Assert.AreEqual( "ka istuu",  jono.ToString() , "in method SiirraMerkit, line 97");
+			Assert.AreEqual( "asu", SiirraMerkit(jono, "aus", 3) , "in method SiirraMerkit, line 98");;
+			;
+			;
+			;
+			;
+			Assert.AreEqual( "k itu",  jono.ToString() , "in method SiirraMerkit, line 98");
+			Assert.AreEqual( "iu", SiirraMerkit(jono, "iu", 3) , "in method SiirraMerkit, line 99");;
+			;
+			;
+			;
+			;
+			Assert.AreEqual( "k t",  jono.ToString() , "in method SiirraMerkit, line 99");
+			Assert.AreEqual( " ", SiirraMerkit(jono, " ", 3) , "in method SiirraMerkit, line 100");;
+			;
+			;
+			;
+			;
+			Assert.AreEqual( "kt",  jono.ToString() , "in method SiirraMerkit, line 100");
+			Assert.AreEqual( "kt", SiirraMerkit(jono, "tk", 3) , "in method SiirraMerkit, line 101");;
+			;
+			;
+			;
+			;
+			Assert.AreEqual( "",  jono.ToString() , "in method SiirraMerkit, line 101");
+			Assert.AreEqual( "", SiirraMerkit(jono, "tk", 3) , "in method SiirraMerkit, line 102");;
+			;
+			;
+			;
+			;
+			Assert.AreEqual( "",  jono.ToString() , "in method SiirraMerkit, line 102");
+		}
+	}
+
