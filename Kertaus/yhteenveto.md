@@ -123,6 +123,14 @@ int b = 3;
 int summa = a + b;
 ```
 
+Myös jotkin operaattorit voivat tehdä sijoituksen.
+
+```csharp
+int a = 5;
+a += 3; // a = a + 3
+a++; // a = a + 1
+```
+
 ## Aliohjelmat
 
 **Tarkoitus.** Aliohjelmat ovat ohjelman osia, jotka suorittavat tietyn tehtävän. Aliohjelmat helpottavat ohjelman rakentamista pienistä palasista, sekä ohjelman ylläpitoa. Aliohjelma voi ottaa vastaan tietoa parametreina, ja se voi palauttaa arvon.
