@@ -1,18 +1,29 @@
 # Yhteenveto Ohjelmointi 1 -kurssin asioista
 
-Tässä dokumentissa käydään läpi Ohjelmointi 1 -kurssin keskeiset asiat. Dokumentti on tarkoitettu kertaukseksi kurssin asioista ja apuvälineeksi kurssin jälkeiseen ohjelmointiin. Dokumentti ei ole täydellinen, eikä se sisällä kaikkea kurssilla käytyä asiaa.
+Tässä dokumentissa käydään läpi Ohjelmointi 1 -kurssin keskeisiä asioita. Dokumentti on tarkoitettu kertaukseksi ja apuvälineeksi kurssin jälkeiseen ohjelmointiin. Dokumentti ei ole täydellinen, eikä se sisällä kaikkea kurssilla käytyä asiaa. Esimerkit ovat valikoituja, ja kattavat vain osan kurssin aiheista.
 
 ## Lauseiden suorittaminen
 
-Lauseet ovat ohjelman perusyksiköitä, jotka suoritetaan yksi kerrallaan. Lauseet voivat olla esimerkiksi muuttujan määrittelyjä, aliohjelmien kutsuja tai ehtolauseita.
+Lauseet ovat ohjelman perusyksiköitä, jotka suoritetaan yksi kerrallaan. Lause voi olla esimerkiksi muuttujan määrittely, aliohjelman kutsu, ehto- tai toistolause.
 
-Lause voi olla sellainen, joka näkyy ohjelman käyttäjälle, kuten tulostuslause. Lause voi myös muuttaa ohjelman tilaa, kuten muuttujan arvoa tai kutsua aliohjelmaa.
+Lauseella voi olla käyttäjälle näkyviä vaikutuksia, kuten ruudulla näkyvä tulostus tai kappaleen lisääminen pelikentälle.
 
 ```csharp
 Console.WriteLine("Hello, World!"); // Tulostaa näytölle tekstiä
+PhysicsObject pallo = new PhysicsObject(10, 10); // Luo uuden fysiikkaolion
+Add(pallo); // Lisää olion pelikentälle
+```
+
+Lauseella voi olla myös "näkymätön" vaikutus, kuten muuttujan tilan muuttuminen.
+
+```csharp
 int a = 3; // Muuttaa muuttujan a arvoa
 a++; // Lisää muuttujan a arvoa yhdellä
 ```
+
+## Ohjelman suoritusjärjestys
+
+Ohjelma suoritetaan ylhäältä alas, vasemmalta oikealle. Ohjelman suoritus alkaa `Main`-aliohjelmasta, joka on ohjelman pääohjelma. Pääohjelma voi kutsua muita aliohjelmia, jotka voivat kutsua muita aliohjelmia jne.
 
 ## Ohjelman rakenne
 
@@ -40,8 +51,7 @@ public class Sovellus
 
 ## C#-ohjelman kääntäminen ja ajaminen
 
-Kääntäminen tarkoittaa ohjelmakoodin muuttamista konekielelle.
-IDEssä (esim. Rider) kääntäminen tapahtuu klikkaamalla "Run" tai "Debug".
+**Kääntäminen** tarkoittaa ohjelmoijan kirjoittaman ohjelmakoodin muuttamista tietokoneelle suoritettavaksi ohjelmaksi, konekielelle. IDEssä (esim. Rider) kääntäminen tapahtuu klikkaamalla "Run" tai "Debug".
 
 Kääntämisen jälkeen ohjelmaa voidaan ajaa IDEssä klikkaamalla "Run" tai "Debug" -nappia. Ohjelmaa voidaan ajaa myös komentoriviltä, esimerkiksi seuraavasti:
 
@@ -49,14 +59,16 @@ Kääntämisen jälkeen ohjelmaa voidaan ajaa IDEssä klikkaamalla "Run" tai "De
 dotnet run
 ```
 
+Ohjelma on käännettävä aina koodin muuttamisen jälkeen, jotta muutokset tulevat voimaan.
+
+## Käännösvirheet
+
 Kääntämisen yhteydessä ohjelmakoodi tarkistetaan virheiden varalta.
 Jos koodissa on virheitä, kääntäminen ei onnistu eikä ohjelmaa voi ajaa. Virheet on korjattava ennen uutta kääntämistä.
 
-Ohjelma on käännettävä aina koodin muuttamisen jälkeen, jotta muutokset tulevat voimaan.
-
 ## Koodin kommentointi ja dokumentointi
 
-Koodiin voidaan lisätä kommentteja, jotka auttavat koodin ymmärtämisessä. Kommentit eivät vaikuta ohjelman toimintaan, vaan ovat ohjelmoijan apuvälineitä.
+Koodiin voidaan lisätä kommentteja, jotka auttavat koodin ymmärtämisessä. Kommentit eivät vaikuta ohjelman toimintaan.
 
 ```csharp
 // Kommentti yhdellä rivillä
@@ -64,9 +76,9 @@ Koodiin voidaan lisätä kommentteja, jotka auttavat koodin ymmärtämisessä. K
 usealla rivillä */
 ```
 
-Dokumentointi tarkoittaa koodin selittämistä niin, että muutkin kuin koodin kirjoittaja ymmärtävät sen. Dokumentointi auttaa koodin ylläpitämisessä ja kehittämisessä.
+Dokumentointi auttaa koodin ylläpitämisessä ja kehittämisessä. Dokumentoinnin avulla muutkin kuin koodin kirjoittaja ymmärtävät sen.
 
-Dokumentointiin käytetään esimerkiksi XML-kommentteja. Niiden sijainti on ennen dokumentoitavaa koodia, kuten aliohjelmaa tai luokkaa.
+Dokumentointiin käytetään XML-muotoisia kommentteja (esim. `<summary>...</summary>`). Dokumentaatiokommenttien sijainti on ennen dokumentoitavaa koodia, kuten aliohjelmaa tai luokkaa.
 
 ```csharp
 /// <summary>
@@ -80,7 +92,7 @@ public static void Tervehdys()
 
 Alla olevissa esimerkeissä dokumentaatiokommentit on jätetty pois tilan säästämiseksi.
 
-## Muuttujat
+## Muuttujat ja vakiot
 
 **Ohjelman tila määritellään muuttujiin.** Muuttujat ovat ohjelmassa käytettäviä arvoja, joiden arvoa ohjelmoija voi muuttaa ohjelman suorituksen aikana. Niinpä voidaan sanoa, että muuttuja on ohjelman tilassa oleva arvo, ja jos muuttujan arvoa muutetaan, muuttuu ohjelman tila.
 
@@ -92,14 +104,6 @@ string nimi = "Maija"; // nimi-muuttujaan voi tallentaa merkkijonoja
 bool onkoTosi = true; // onkoTosi-muuttujaan voi tallentaa totuusarvoja
 ```
 
-**Sijoitus.** Muuttujan arvoa voidaan muuttaa sijoituslauseella. Sijoitus tapahtuu aina oikealta vasemmalle.
-
-```csharp
-int a = 5;
-int b = 3;
-int summa = a + b;
-```
-
 **Vakiot.** Vakio on luku-, merkkijono- tai totuusarvotyyppinen muuttuja, jonka arvo vakioidaan käännöksessä, eikä arvoa voi muuttaa ohjelman suorituksen aikana. Vakio määritellään `const`-avainsanalla. Vakion nimi kirjoitetaan suuraakkosilla (sanat erotellaan alaviivalla) tai vaihtoehtoisesti PascalCase-tyyliin.
 
 ```csharp
@@ -109,7 +113,48 @@ const string TervehdysSana = "Hei"; // PascalCase-tyyli
 
 Huomaa, että oliotietotyypit (esim. `int[]`) ovat viitepohjaisia muuttujia, joten niitä ei voi määritellä `const`-avainsanalla.
 
-**Näkyvyys.** Muuttuja _näkyy_ vain siinä lohkossa, jossa se on määritelty.
+## Sijoitus
+
+**Sijoitus.** Muuttujan arvoa voidaan muuttaa sijoituslauseella. Sijoitus tapahtuu aina oikealta vasemmalle.
+
+```csharp
+int a = 5;
+int b = 3;
+int summa = a + b;
+```
+
+## Aliohjelmat
+
+**Tarkoitus.** Aliohjelmat ovat ohjelman osia, jotka suorittavat tietyn tehtävän. Aliohjelmat helpottavat ohjelman rakentamista pienistä palasista, sekä ohjelman ylläpitoa. Aliohjelma voi ottaa vastaan tietoa parametreina, ja se voi palauttaa arvon.
+
+**Parametrit ja paluuarvo.** Tämä aliohjelma laskee kahden luvun summan ja palauttaa sen. Aliohjelma ottaa vastaan kaksi parametria ja palauttaa näiden parametrien arvojen summan.
+
+```csharp
+public static int LaskeSumma(int a, int b)
+{
+    return a + b;
+}
+```
+
+**Kutsuminen.** Aliohjelmaa kutsutaan kirjoittamalla aliohjelman nimi ja sulkujen sisään _argumentit_, joita haluamme antaa aliohjelmalle.
+
+```csharp
+int summa = LaskeSumma(3, 5);
+Console.WriteLine(summa); // Tulostaa 8
+```
+
+Aliohjelma voi myös olla ilman paluuarvoa. Tällöin se määritetään `void`-tyyppiseksi.
+
+```csharp
+public static void Tervehdys()
+{
+    Console.WriteLine("Moikka!");
+}
+```
+
+## Muuttujien näkyvyys
+
+Muuttuja _näkyy_ vain siinä lohkossa, jossa se on määritelty. Lohko voi olla esimerkiksi aliohjelma, luokka tai silmukka.
 
 ```csharp
 public static void Main()
@@ -146,34 +191,253 @@ public static void ToinenAliohjelma()
 
 Näkyvyys, lisätietoa: [Muuttujien näkyvyys](https://tim.jyu.fi/view/kurssit/tie/ohj1/materiaali/MuuttujienNakyvyys)
 
-## Aliohjelmat
+## Merkkijonot
 
-**Tarkoitus.** Aliohjelmat ovat ohjelman osia, jotka suorittavat tietyn tehtävän. Aliohjelmat helpottavat ohjelman rakentamista pienistä palasista, sekä ohjelman ylläpitoa. Aliohjelma voi ottaa vastaan tietoa parametreina, ja se voi palauttaa arvon.
+**Merkkijono** (`string`) sisältää `char`-merkkejä. Merkkijonoja käytetään esimerkiksi tekstien käsittelyyn ja tulostamiseen.
 
-**Parametrit ja paluuarvo.** Tämä aliohjelma laskee kahden luvun summan ja palauttaa sen. Aliohjelma ottaa vastaan kaksi parametria ja palauttaa näiden parametrien arvojen summan.
+Merkkijonon sisäinen esitysmuoto on taulukko (ks. [Taulukot](#taulukot)), joten merkkijonon _n_:s merkki saadaan käyttäen hakasulkunotaatiota.
 
 ```csharp
-public static int LaskeSumma(int a, int b)
+string nimi = "Maija";
+char ensimmainenKirjain = nimi[0]; // merkki 'M'
+```
+
+**Merkkijonojen yhdistäminen.** Merkkijonoja voidaan yhdistää `+`-operaattorilla tai _interpoloinnilla_, jossa merkkijonon sisään kirjoitetaan muuttujan nimi.
+
+```csharp
+string etunimi = "Maija";
+string sukunimi = "Mallikas";
+// Yhdistetään etunimi ja sukunimi
+string kokonimi = etunimi + " " + sukunimi; // "Maija Mallikas"
+// Interpolointi
+string tervehdys = $"Hei, {kokonimi}!"; // "Hei, Maija Mallikas!"
+```
+
+**Muokattava merkkijono**, `StringBuilder`, on tehokkaampi tapa käsitellä merkkijonoja, jotka muuttuvat usein. `StringBuilder`-luokkaa käytetään, kun merkkijonoa muokataan usein, koska `string`-tyyppi on muuttumaton.
+
+## Ehtolauseet
+
+**Ehtolauseet** ovat rakenteita, jotka suorittavat tiettyjä lauseita, jos jokin ehto on voimassa. Koodin suoritusta voidaan ohjata ehtolauseilla.
+
+**Vertailuoperaattorit.** Ehtolauseissa käytetään vertailuoperaattoreita (tai _loogisia operaattoreita_), jotka vertailevat kahta arvoa ja palauttavat totuusarvon.
+
+**switch-case**-rakenteella voidaan vertailla yhtä muuttujan arvoa useaan eri arvoon.
+
+```csharp
+int luku = 47;
+switch (luku)
 {
-    return a + b;
+   case < 50:
+      Console.WriteLine("Luku on pienempi kuin 50");
+      break;
+   case > 50:
+      Console.WriteLine("Luku on suurempi kuin 50");
+      break;
+   default:
+      Console.WriteLine("Luku on 50");
+      break;
 }
 ```
 
-**Kutsuminen.** Aliohjelmaa kutsutaan kirjoittamalla aliohjelman nimi ja sulkujen sisään _argumentit_, joita haluamme antaa aliohjelmalle.
+## Toistorakenteet
+
+**Toistorakenteilla** voidaan toistaa ohjelman suoritusta niin kauan kuin jokin ehto on voimassa.
+
+Toistorakenteita ovat `while`, `do-while`, `for`, `for-each` ja `foreach`.
+
+Tulostetaan luvut 1-10 käyttäen `while`-silmukkaa.
 
 ```csharp
-int summa = LaskeSumma(3, 5);
-Console.WriteLine(summa); // Tulostaa 8
-```
-
-Aliohjelma voi myös olla ilman paluuarvoa. Tällöin se määritetään `void`-tyyppiseksi.
-
-```csharp
-public static void Tervehdys()
+int i = 1;
+while (i <= 10)
 {
-    Console.WriteLine("Moikka!");
+    Console.WriteLine(i);
+    i++;
 }
 ```
+
+For-silmukka:
+
+```csharp
+for (int i = 1; i <= 10; i++)
+{
+    Console.WriteLine(i);
+}
+```
+
+For-silmukkaan kuuluu osat alustus (yllä `int i = 1`), toistoehto (`i <= 10`), päivitys (`i++`) ja runko-osa (aaltosulkeiden rajaama osa). Mikä tahansa näistä osista voi olla tyhjä, mutta puolipisteet on silti kirjoitettava.
+
+**For-each**-silmukkaa käytetään silmukointiin taulukoissa ja kokoelmissa. For-each-silmukkaa käytetään, kun halutaan käydä läpi kaikki taulukon tai kokoelman alkiot.
+
+```csharp
+int[] luvut = { 7, 3, 1, -5, 9};
+foreach (int luku in luvut)
+{
+    Console.WriteLine(luku);
+}
+```
+
+Silmukoita voi kirjoittaa myös sisäkkäin.
+
+```csharp
+for (int i = 1; i < 5; i++)
+{
+    for (int j = 2; j < 8; j++)
+    {
+        // Tulostetaan kaikki mahdolliset
+        // i:n ja j:n muodostamien parien arvot
+        Console.WriteLine($"{i}, {j}");
+    }
+}
+```
+
+Tarvittaessa `break`-lauseella voidaan lopettaa silmukka ja siirtyä silmukan jälkeiseen koodiin. Toisaalta
+`continue`-lauseella voidaan tarvittaessa päättää silmukan kierros.
+
+```csharp
+// Tulostetaan luvut 1, 2, 3, 4, 6, 7. Luku 5 jätetään välistä,
+// ja luvun 8 kohdalla silmukka lopetetaan.
+for (int i = 1; i <= 10; i++)
+{
+    if (i == 5)
+    {
+        continue; // Siirrytään seuraavaan kierrokseen
+    }
+    if (i == 8)
+    {
+        break; // Lopetetaan silmukan suoritus
+    }
+    Console.WriteLine(i);
+}
+```
+
+## Taulukot
+
+_Taulukko_ on järjestetty joukko yhden tyyppisiä asioita. Taulukko luodaan määrittelemällä taulukon tyyppi ja koko.
+
+```csharp
+int[] luvut = new int[5]; // Luodaan taulukko, jossa on 5 kokonaislukua
+```
+
+Taulukon koko on kiinteä, eikä sitä voi muuttaa.
+
+Vaihtoehtoisesti taulukon voi alustaa määrittelyn yhteydessä.
+
+```csharp
+int[] luvut = { 7, 5, 9, 1, 2 };
+```
+
+Taulukossa olevia asioita kutsutaan _alkioiksi_. Yksittäiseen alkioon viitataan hakasulkujen ja paikkaluvun, eli indeksin avulla. Taulukon ensimmäinen alkio on indeksissä 0.
+
+```csharp
+luvut[0] = 7;
+luvut[1] = 5;
+luvut[2] = 9;
+luvut[3] = 1;
+luvut[4] = 2;
+
+// Tulostetaan taulukon kolmas alkio, ts. indeksissä 2 oleva luku
+Console.WriteLine(luvut[2]); // Tulostaa 9
+```
+
+**Taulukon pituus** saadaan `Length`-ominaisuudella.
+
+Taulukoita käsitellään usein silmukan avulla. Lasketaan äskeisen taulukon lukujen summa.
+
+```csharp
+int summa = 0;
+for (int i = 0; i < luvut.Length; i++)
+{
+      summa += luvut[i];
+}
+Console.WriteLine(summa); // Tulostaa 24
+```
+
+**Moniulotteiset taulukot.** Taulukossa voi olla useampi kuin yksi ulottuvuus. Tällä kurssilla rajoitumme kahden ulottuvuuden taulukoihin, joita kutsutaan myös _matriiseiksi_.
+
+```csharp
+// Kolmen rivin ja kahden sarakkeen taulukko
+int[,] taulukko = new int[3, 2];
+
+// Alustetaan taulukko
+taulukko[0, 0] = 1;
+taulukko[0, 1] = 2;
+taulukko[1, 0] = 3;
+taulukko[1, 1] = 4;
+taulukko[2, 0] = 5;
+taulukko[2, 1] = 6;
+```
+
+Matriisin rivien ja sarakkeiden määrä saadaan `GetLength`-metodilla.
+
+```csharp
+int rivit = taulukko.GetLength(0); // 3
+int sarakkeet = taulukko.GetLength(1); // 2
+```
+
+## Lista
+
+**Lista** on dynaaminen tietorakenne, joka voi kasvaa ja kutistua tarpeen mukaan. Listan koko ei ole kiinteä, toisin kuin taulukon.
+
+Listan voi luoda määrittelemällä listan tyyppi ja alustamalla sen.
+
+```csharp
+List<int> luvut = new List<int>();
+```
+
+Listaan voi lisätä alkioita `Add`-metodilla.
+
+```csharp
+luvut.Add(5);
+luvut.Add(7);
+```
+
+Listan alkioihin viitataan indeksillä, kuten taulukossa. Listan koko saadaan `Count`-ominaisuudella.
+
+```csharp
+int koko = luvut.Count; // 2
+```
+
+## Sanakirja
+
+**Sanakirja** on tietorakenne, joka koostuu avain-arvo -pareista. Sanakirjaan voi tallentaa arvoja avaimen perusteella. Sanakirja luodaan määrittelemällä avaimen ja arvon tyypit.
+
+```csharp
+Dictionary<string, int> sanakirja = new Dictionary<string, int>();
+```
+
+Sanakirjaan lisätään avain-arvo-pareja `Add`-metodilla.
+
+```csharp
+sanakirja.Add("Autoja", 3);
+sanakirja.Add("Polkupyöriä", 2);
+sanakirja.Add("Moottoripyöriä", 7);
+```
+
+Sanakirjan arvoihin viitataan avaimen avulla.
+
+```csharp
+int autoja = sanakirja["Autoja"];
+Console.WriteLine(autoja); // 3
+```
+
+Sanakirjan alkiot voidaan käydä läpi `foreach`-silmukalla.
+
+```csharp
+foreach (KeyValuePair<string, int> pari in sanakirja)
+{
+    Console.WriteLine($"{pari.Key}: {pari.Value}");
+}
+```
+
+1.  Merkkijonojen pilkkominen
+    a. String.Split
+1.  Järjestämisalgoritmi
+    a. Valmiit järjestysalgoritmit
+1.  Rekursio
+1.  Dynaamiset tietorakenteet
+
+## Debuggaus
 
 ## Oliotietotyypit
 
@@ -240,3 +504,7 @@ public static void Tervehdys()
 19. Poikkeukset
 20. Lukujen esitys tietokoneessa
 21. ASCII-koodi
+
+```
+
+```
