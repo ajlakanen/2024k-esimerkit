@@ -1,6 +1,7 @@
 # Yhteenveto Ohjelmointi 1 -kurssin asioista
 
-Tässä dokumentissa käydään läpi Ohjelmointi 1 -kurssin keskeisiä asioita. Dokumentti on tarkoitettu kertaukseksi ja apuvälineeksi kurssin jälkeiseen ohjelmointiin. Dokumentti ei ole täydellinen, eikä se sisällä kaikkea kurssilla käytyä asiaa. Esimerkit ovat valikoituja, ja kattavat vain osan kurssin aiheista.
+Tässä dokumentissa käydään läpi Ohjelmointi 1 -kurssin keskeisiä asioita. Dokumentti on tarkoitettu kertaukseksi ja toisaalta apuvälineeksi kurssin jälkeiseen ohjelmointiin. Dokumentti ei ole täydellinen, eikä se sisällä kaikkea kurssilla käytyä asiaa. Esimerkit ovat valikoituja, ja kattavat vain osan kurssin aiheista. Koko kurssimateriaali on luettavissa [ Ohjelmointi 1 -kurssin monisteesta](https://tim.jyu.fi/view/kurssit/tie/ohj1/yleinen) sekä
+[monisteen täydennyksistä](https://tim.jyu.fi/view/kurssit/tie/ohj1/materiaali/monisteenTaydennykset).
 
 ## Lauseiden suorittaminen
 
@@ -63,8 +64,7 @@ Ohjelma on käännettävä aina koodin muuttamisen jälkeen, jotta muutokset tul
 
 ## Käännösvirheet
 
-Kääntämisen yhteydessä ohjelmakoodi tarkistetaan virheiden varalta.
-Jos koodissa on virheitä, kääntäminen ei onnistu eikä ohjelmaa voi ajaa. Virheet on korjattava ennen uutta kääntämistä.
+Kääntämisen yhteydessä ohjelmakoodi tarkistetaan virheiden varalta. Jos koodissa on virheitä, kääntäminen ei onnistu eikä ohjelmaa voi ajaa. Virheet on korjattava ennen uutta kääntämistä.
 
 ## Koodin kommentointi ja dokumentointi
 
@@ -111,7 +111,7 @@ const int MONTAKO_VIHUA = 10; // all caps -tyyli
 const string TervehdysSana = "Hei"; // PascalCase-tyyli
 ```
 
-Huomaa, että oliotietotyypit (esim. `int[]`) ovat viitepohjaisia muuttujia, joten niitä ei voi määritellä `const`-avainsanalla.
+Huomaa, että oliotietotyypit (esim. `int[]`) ovat viitepohjaisia muuttujia, joten niitä ei voi määritellä `const`-avainsanalla. On olemassa muuttumattomia oliotietotyyppejä (esimerkiksi `ImmutableArray`), mutta emme käsittele niitä tällä kurssilla, joskin `string`-tyyppi tekee tähän poikkeuksen.
 
 ## Sijoitus
 
@@ -130,7 +130,7 @@ int summa = a + b;
 **Parametrit ja paluuarvo.** Tämä aliohjelma laskee kahden luvun summan ja palauttaa sen. Aliohjelma ottaa vastaan kaksi parametria ja palauttaa näiden parametrien arvojen summan.
 
 ```csharp
-public static int LaskeSumma(int a, int b)
+public static int Summa(int a, int b)
 {
     return a + b;
 }
@@ -139,16 +139,26 @@ public static int LaskeSumma(int a, int b)
 **Kutsuminen.** Aliohjelmaa kutsutaan kirjoittamalla aliohjelman nimi ja sulkujen sisään _argumentit_, joita haluamme antaa aliohjelmalle.
 
 ```csharp
-int summa = LaskeSumma(3, 5);
+int summa = Summa(3, 5);
 Console.WriteLine(summa); // Tulostaa 8
 ```
 
-Aliohjelma voi myös olla ilman paluuarvoa. Tällöin se määritetään `void`-tyyppiseksi.
+Jos aliohjelma määritetään `void`-tyyppiseksi, se ei palauta arvoa, ts. siinä ei ole `return`-lauseita.
 
 ```csharp
 public static void Tervehdys()
 {
     Console.WriteLine("Moikka!");
+}
+```
+
+Jos aliohjelman paluuarvon tyyppi on määritelty, aliohjelmassa tulee olla vähintään yksi `return`-lause. Alla oleva koodi aiheuttaisi käännösvirheen.
+
+```csharp
+public static int Summa(int a, int b)
+{
+    Console.WriteLine(a + b);
+    // Käännösvirhe: "not all code paths return a value"
 }
 ```
 
@@ -160,16 +170,17 @@ Muuttuja _näkyy_ vain siinä lohkossa, jossa se on määritelty. Lohko voi olla
 public static void Main()
 {
     int a = 5; // a näkyy vain Main-aliohjelmassa
-    Console.WriteLine(a); // Tulostaa 5
+    Console.WriteLine(a);
 }
 
 public static void Tervehdys()
 {
     Console.WriteLine(a); // Ei toimi, koska a ei näy tässä aliohjelmassa
+    // Käännösvirhe: "The name 'a' does not exist in the current context"
 }
 ```
 
-Myöskään aliohjelmien parametrimuuttujat eivät näy kyseisen aliohjelman ulkopuolella.
+Aliohjelmien parametrimuuttujat ovat aliohjelman paikallisia muuttujia, joten ne eivät näy kyseisen aliohjelman ulkopuolella.
 
 ```csharp
 public static void Main()
@@ -180,12 +191,12 @@ public static void Main()
 
 public static void Tervehdys(int a)
 {
-    Console.WriteLine(a); // Tulostaa 5
+    Console.WriteLine(a);
 }
 
 public static void ToinenAliohjelma()
 {
-    Console.WriteLine(a); // Ei toimi, koska a ei näy tässä aliohjelmassa
+    Console.WriteLine(a); // a _ei_ näy tässä aliohjelmassa
 }
 ```
 
@@ -219,7 +230,16 @@ string tervehdys = $"Hei, {kokonimi}!"; // "Hei, Maija Mallikas!"
 
 **Ehtolauseet** ovat rakenteita, jotka suorittavat tiettyjä lauseita, jos jokin ehto on voimassa. Koodin suoritusta voidaan ohjata ehtolauseilla.
 
-**Vertailuoperaattorit.** Ehtolauseissa käytetään vertailuoperaattoreita (tai _loogisia operaattoreita_), jotka vertailevat kahta arvoa ja palauttavat totuusarvon.
+**Vertailuoperaattorit.** Ehtolauseissa käytetään _vertailuoperaattoreita_ (tai _loogisia operaattoreita_), jotka vertailevat kahta arvoa ja palauttavat totuusarvon.
+
+```csharp
+int a = 5;
+int b = 3;
+if (a > b)
+{
+    Console.WriteLine("a on suurempi kuin b");
+}
+```
 
 **switch-case**-rakenteella voidaan vertailla yhtä muuttujan arvoa useaan eri arvoon.
 
@@ -430,81 +450,144 @@ foreach (KeyValuePair<string, int> pari in sanakirja)
 }
 ```
 
-1.  Merkkijonojen pilkkominen
-    a. String.Split
-1.  Järjestämisalgoritmi
-    a. Valmiit järjestysalgoritmit
-1.  Rekursio
-1.  Dynaamiset tietorakenteet
+## Merkkijonojen pilkkominen
+
+Merkkijonoja voidaan pilkkoa `Split`-metodilla. Metodi palauttaa taulukon, jossa on alkuperäisen merkkijonon osat.
+
+```csharp
+string teksti = "Maija,Matti,Anna";
+string[] nimet = teksti.Split(',');
+foreach (string nimi in nimet)
+{
+    Console.WriteLine(nimi);
+}
+```
+
+## Rekursio
+
+**Rekursio** on ohjelmointitekniikka, jossa aliohjelma kutsuu itseään. Rekursiivinen aliohjelma koostuu kahdesta osasta: _perustapaus_ ja _rekursiivinen tapaus_.
+
+Perustapaus on tilanne, jossa rekursiivinen aliohjelma ei kutsu itseään. Rekursiivinen tapaus on tilanne, jossa rekursiivinen aliohjelma kutsuu itseään.
+
+Esimerkki rekursiivisesta aliohjelmasta, joka laskee luvun kertoman.
+
+```csharp
+public static int Kertoma(int n)
+{
+    if (n == 0)
+    {
+        return 1; // Perustapaus
+    }
+    else
+    {
+        return n * Kertoma(n - 1); // Rekursiivinen tapaus
+    }
+}
+```
 
 ## Debuggaus
 
+**Debuggaus** on ohjelman suorituksen tarkastelua ja virheiden etsimistä. Ohjelmaa voidaan ajaa _debug-tilassa_, jolloin ohjelmaa voidaan suorittaa askel askeleelta ja tarkastella ohjelman tilaa. Debuggaus auttaa virheiden etsimisessä ja ohjelman toiminnan ymmärtämisessä.
+
+Varmista, että osaat käyttää debuggaustyökaluja, kuten
+
+- keskeytyskohdat,
+- step over,
+- step into,
+- step out,
+- muuttujien tarkastelu ja muokkaus,
+- watch-ikkuna,
+- kutsupino,
+- koodin ajon jatkaminen,
+- koodin ajon pysäyttäminen.
+
 ## Oliotietotyypit
 
-3. Kommentointi ja dokumentointi
-4. Algoritmit
-   a. Algoritminen ajattelu
-   b. Tarkentaminen
-   c. Yleistäminen
-   d. Algoritmin kirjoittaminen ja suunnittelu
-5. Kirjastot
-6. Aliohjelmat
-   a. Kutsuminen
-   b. Kirjoittaminen
-   c. Aliohjelmat, metodit, funktiot
-7. Muuttujat
-   a. Muuttujan määrittely
-   b. C#:n alkeistietotyypit
-   c. Nimeäminen
-   d. Arvon asettaminen muuttujaan
-   e. Näkyvyys
-   f. Vakiot
-   g. Aritmeettiset lausekkeet
-8. Oliotietotyypit
-   a. Mitä oliot ovat
-   b. Luominen
-   c. Oliotietotyypit vs alkeistietotyypit
-   d. Metodin kutsuminen
-   e. Olion tuhoaminen, roskienkeruu
-   f. Olioluokkien dokumentaatio ?
-9. Aliohjelman paluuarvo
-10. Visual Studion tehokas käyttö
-    a. Visual Studion asentaminen ja käynnistäminen
-    b. Jypeli-kirjaston tuominen omaan projektiin, Jypeli-projektimallin käyttäminen
-    c. Debuggaus
-    d. Syntaksivirheiden etsintä
-    e. Koodin täydennystyökalut ja koodimallit
-11. Merkkijonot
-    a. String, metodeja
-    b. Muokattavat merkkijonot
-12. Ehtolauseet
-    a. if-rakenne, if-else
-    b. Vertailuoperaattorit
-    c. Loogiset operaatiot
-    d. else-if
-    e. switch-case
-13. Taulukot
-    a. Luominen
-    b. Alkioon viittaaminen
-    c. Moniulotteiset taulukot
-14. Toistorakenteet
-    a. while
-    b. do-while
-    c. for
-    d. for-each
-    e. Sisäkkäiset silmukat
-    f. break- ja continue -lauseet
-    g. "ikuinen silmukka"
-15. Merkkijonojen pilkkominen
-    a. String.Split
-16. Järjestämisalgoritmi
-    a. Valmiit järjestysalgoritmit
-17. Rekursio
-18. Dynaamiset tietorakenteet
-19. Poikkeukset
-20. Lukujen esitys tietokoneessa
-21. ASCII-koodi
+**Oliotietotyypit** ovat tietotyyppejä, jotka koostuvat _olion ominaisuuksista_ ja _metodeista_. Oliotietotyyppejä käytetään monimutkaisten tietorakenteiden ja toimintojen toteuttamiseen.
 
+Tällä kurssilla ei luoda uusia oliotietotyyppejä, vaan käytetään valmiita oliotietotyyppejä, kuten `string`, `List`, `PhysicsObject`, jne. ja niiden ominaisuuksia ja metodeja, kuten `Length`, `Add`, `Remove`, jne.
+
+Oliotietotyypit ovat _viitepohjaisia_, eli muuttujat eivät sisällä suoraan arvoa, vaan viittauksen muistissa olevaan olioon. Jos oliomuuttuja annetaan aliohjelmalle argumenttina, tällaisen muuttujan arvo voi muuttua aliohjelman suorituksen aikana.
+
+```csharp
+List<int> luvut = new List<int>();
+// luvut-listan pituus on tällä hetkellä 0.
+// Annetaan luvut-lista argumenttina aliohjelmalle.
+LisaaLukuja(luvut);
+Console.WriteLine(luvut.Count); // Tulostaa 3
+
+public static void LisaaLukuja(List<int> luvut)
+{
+   // Tämä muuttaa luvut-listan sisältöä, ja muutos näkyy myös kutsujalle
+   luvut.Add(4);
+   luvut.Add(2);
+   luvut.Add(1);
+}
 ```
 
+Omien oliotietotyyppien luomiseen tarvitaan _luokka_. Luokka määrittelee oliotietotyypin ominaisuudet ja metodit. Omiin oliotietotyyppeihin palataan myöhemmillä kursseilla.
+
+## Poikkeukset
+
+**Poikkeukset** ovat ohjelman suorituksen aikana tapahtuvia virhetilanteita. Poikkeukset voivat johtua esimerkiksi virheellisestä syötteestä, tiedostojen puuttumisesta tai muusta odottamattomasta tilanteesta.
+
+Poikkeuksia voidaan käsitellä `try-catch`-rakenteella. `try`-lohkossa suoritetaan koodi, joka saattaa aiheuttaa poikkeuksen. Jos poikkeus tapahtuu, suoritus siirtyy `catch`-lohkoon.
+
+## Tiedostojen käsittely
+
+**Tiedostojen käsittely** tarkoittaa tiedostojen lukemista ja kirjoittamista ohjelmasta.
+
+Tiedostoon kirjoittaminen:
+
+```csharp
+using System.IO;
+string tiedostonimi = "tiedosto.txt";
+string teksti = "Moi!";
+File.WriteAllText(tiedostonimi, teksti);
 ```
+
+Tiedoston lukeminen:
+
+```csharp
+using System;
+using System.IO;
+string tiedostonimi = "tiedosto.txt";
+// Luetaan kaikki tiedoston rivit string-taulukkoon
+string[] rivit = File.ReadAllLines(tiedostonimi);
+
+// Tulostetaan kaikki rivit
+foreach (string rivi in rivit)
+{
+    Console.WriteLine(rivi);
+}
+```
+
+## Lukujen esitys tietokoneessa
+
+Tietokoneen muistiin tallennetaan lukuja kaksijärjestelmässä eli ns. _binäärimuodossa_. Tietokoneen muisti koostuu biteistä, jotka voivat olla joko 0 tai 1. On hyvä ymmärtää, miten lukuja esitetään tietokoneessa, jotta voi ymmärtää, miten lukuja käsitellään ohjelmoinnissa.
+
+Esimerkiksi luku 7 on 8-bittisessä binäärimuodossa `00000111`. Negatiivinen luku -7 voidaan esittää kahden komplementin avulla: `11111001`. Luvun 7 kohdalla kahden komplementti saadaan laskemalla seuraavasti
+
+```
+7 = 00000111
+// Käänteisluku
+~7 = 11111000
+// Lisätään 1
+~7 + 1 = 11111001
+```
+
+Tosiasiassa 8-bittisiä lukuja käytetään harvoin, ja useimmiten käytetään 32-bittisiä (C#:ssa `int`) tai 64-bittisiä (`long`) lukuja. Vastaava ajatus pätee kuitenkin myös näihin suurempibittisiin lukuihin.
+
+Desimaaliluvut esitetään tietokoneessa _liukulukuna_ IEEE 754 -standardin mukaisesti. Liukuluvut voivat olla myös _erikoisarvoja_, kuten `NaN` (Not a Number) ja `Infinity`. Liukuluvut ovat likiarvoja, vaikkakin käytännössä jotkin niistä ovat tarkkoja arvoja (kuten luku 1.0).
+
+Esimerkiksi lukua 0.1 ei voida esittää täsmällisesti liukulukuna, koska kaksiarvoisessa järjestelmässä 0.1 on äärettömän pitkä desimaaliluku.
+
+## ASCII-koodi
+
+**ASCII-koodi** on merkkien ja numeroiden esitystapa tietokoneessa. ASCII-koodi määrittää, miten merkit ja numerot esitetään binäärimuodossa. ASCII-koodi on 7-bittinen, ja se sisältää 128 eri merkkiä.
+
+Esimerkiksi kirjain 'A' on ASCII-koodissa 65, 'B' on 66 jne.
+
+ASCII-koodi on käytännössä vanhentunut, ja nykyisin käytetään yleisesti _Unicode_-standardia, joka sisältää kaikki maailman kirjoitusjärjestelmät. Ohjelmakoodin kirjoittamisessa käytetään kuitenkin edelleen ASCII-merkkejä, joskin Unicode-merkit ovat sallittuja monissa ohjelmointikielissä. ASCII-merkit ovat yhteensopivia Unicode-merkkien kanssa, koska ASCII-merkit ovat Unicode-merkkien alkuosajoukko.
+
+Unicode-merkkien määrä on valtava verrattuna ASCII-koodiin: niitä on yli miljoona. Unicode-merkit esitetään yleensä 16-järjestelmän lukuna, eli ns. heksadesimaalina, kuten `U+0041` (luku 65, eli kirjain 'A').
