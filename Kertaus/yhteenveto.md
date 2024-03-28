@@ -176,6 +176,8 @@ public static int Summa(int a, int b)
 }
 ```
 
+Lisätietoa: [Aliohjelmat](https://tim.jyu.fi/view/1#aliohjelmat), [aliohjelman kutsuminen](https://tim.jyu.fi/view/kurssit/tie/ohj1/materiaali/aliohjelmienKutsuminen#aliohjelmien-kutsuminen), [aliohjelman kirjoittaminen](https://tim.jyu.fi/view/kurssit/tie/ohj1/materiaali/aliohjelmienKirjoittaminen#aliohjelman-kirjoittaminen)
+
 ## Muuttujien näkyvyys
 
 Muuttuja _näkyy_ vain siinä lohkossa, jossa se on määritelty. Lohko voi olla esimerkiksi aliohjelma, luokka tai silmukka.
