@@ -293,7 +293,7 @@ for (int i = 1; i <= 10; i++)
 
 For-silmukkaan kuuluu osat alustus (yllä `int i = 1`), toistoehto (`i <= 10`), päivitys (`i++`) ja runko-osa (aaltosulkeiden rajaama osa). Mikä tahansa näistä osista voi olla tyhjä, mutta puolipisteet on silti kirjoitettava.
 
-**For-each**-silmukkaa käytetään silmukointiin taulukoissa ja kokoelmissa. For-each-silmukkaa käytetään, kun halutaan käydä läpi kaikki taulukon tai kokoelman alkiot.
+**For-each**-silmukkaa käytetään erityisesti kokoelmien kanssa. For-each-silmukkaa käytetään, kun halutaan käydä läpi kaikki taulukon tai kokoelman alkiot.
 
 ```csharp
 int[] luvut = { 7, 3, 1, -5, 9};
