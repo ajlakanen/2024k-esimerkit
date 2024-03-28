@@ -26,11 +26,15 @@ a++; // Lisää muuttujan a arvoa yhdellä
 
 ## Ohjelman suoritusjärjestys
 
-Ohjelma suoritetaan ylhäältä alas, vasemmalta oikealle. Ohjelman suoritus alkaa `Main`-aliohjelmasta, joka on ohjelman pääohjelma. Pääohjelma voi kutsua muita aliohjelmia, jotka voivat kutsua muita aliohjelmia jne.
+Ohjelma suoritetaan ylhäältä alas, vasemmalta oikealle. Ohjelman suoritus alkaa `Main`-aliohjelmasta, jota kutsutaan myös _pääohjelmaksi_. Pääohjelma voi kutsua muita aliohjelmia, jotka voivat kutsua taas aliohjelmia jne. Ohjelman suoritus päättyy, kun pääohjelma on suoritettu loppuun.
 
 ## Ohjelman rakenne
 
-C#-kielessä lauseet kirjoitetaan luokkarakenteen sisään. Luokka voi sisältää aliohjelmia. Ohjelman suoritus alkaa `Main`-aliohjelmasta, jota kutsutaan myös _pääohjelmaksi_.
+C#-kielessä tulee olla vähintään yksi luokka, jossa tulee olla `Main`-aliohjelma. Luokka voi sisältää muitakin aliohjelmia. Tällä kurssilla rakentelemme käytännössä ohjelmia, jotka koostuvat vain yhdestä luokasta.
+
+Luokan nimi on sama kuin tiedoston nimi.
+
+Luokan nimi kirjoitetaan PascalCase-tyylillä, eli jokainen sana kirjoitetaan isolla alkukirjaimella.
 
 Alla oleva sovellus koostuu yhdestä luokasta, joka sisältää pääohjelman ja yhden aliohjelman (`Tervehdys`).
 
@@ -68,6 +72,27 @@ Ohjelma on käännettävä aina koodin muuttamisen jälkeen, jotta muutokset tul
 
 Kääntämisen yhteydessä ohjelmakoodi tarkistetaan virheiden varalta. Jos koodissa on virheitä, kääntäminen ei onnistu eikä ohjelmaa voi ajaa. Virheet on korjattava ennen uutta kääntämistä.
 
+## Muuttujat ja vakiot
+
+**Ohjelman tila määritellään muuttujiin.** Muuttujat ovat ohjelmassa käytettäviä arvoja, joiden arvoa ohjelmoija voi muuttaa ohjelman suorituksen aikana. Niinpä voidaan sanoa, että muuttuja on ohjelman tilassa oleva arvo, ja jos muuttujan arvoa muutetaan, muuttuu ohjelman tila.
+
+**Muuttuja on määriteltävä (nimi, tyyppi) ennen käyttöä.** Muuttujan tyyppi määrittää, millaisia arvoja siihen voi tallentaa. Muuttujat tulee nimetä kuvaavasti. Nimeämisessä käytetään camelCase-tyyliä.
+
+```csharp
+int luku = 5; // luku-muuttujaan voi tallentaa kokonaislukuja
+string nimi = "Maija"; // nimi-muuttujaan voi tallentaa merkkijonoja
+bool onkoTosi = true; // onkoTosi-muuttujaan voi tallentaa totuusarvoja
+```
+
+**Vakiot.** Vakio on luku-, merkkijono- tai totuusarvotyyppinen muuttuja, jonka arvo vakioidaan käännöksessä, eikä arvoa voi muuttaa ohjelman suorituksen aikana. Vakio määritellään `const`-avainsanalla. Vakion nimi kirjoitetaan suuraakkosilla (sanat erotellaan alaviivalla) tai vaihtoehtoisesti PascalCase-tyyliin.
+
+```csharp
+const int MONTAKO_VIHUA = 10; // all caps -tyyli
+const string TervehdysSana = "Hei"; // PascalCase-tyyli
+```
+
+Huomaa, että oliotietotyypit (esim. `int[]`) ovat viitepohjaisia muuttujia, joten niitä ei voi määritellä `const`-avainsanalla. On olemassa muuttumattomia oliotietotyyppejä (esimerkiksi `ImmutableArray`), mutta emme käsittele niitä tällä kurssilla, joskin `string`-tyyppi tekee tähän poikkeuksen.
+
 ## Koodin kommentointi ja dokumentointi
 
 Koodiin voidaan lisätä kommentteja, jotka auttavat koodin ymmärtämisessä. Kommentit eivät vaikuta ohjelman toimintaan.
@@ -93,27 +118,6 @@ public static void Tervehdys()
 ```
 
 Alla olevissa esimerkeissä dokumentaatiokommentit on jätetty pois tilan säästämiseksi.
-
-## Muuttujat ja vakiot
-
-**Ohjelman tila määritellään muuttujiin.** Muuttujat ovat ohjelmassa käytettäviä arvoja, joiden arvoa ohjelmoija voi muuttaa ohjelman suorituksen aikana. Niinpä voidaan sanoa, että muuttuja on ohjelman tilassa oleva arvo, ja jos muuttujan arvoa muutetaan, muuttuu ohjelman tila.
-
-**Muuttuja on määriteltävä (nimi, tyyppi) ennen käyttöä.** Muuttujan tyyppi määrittää, millaisia arvoja siihen voi tallentaa.
-
-```csharp
-int luku = 5; // luku-muuttujaan voi tallentaa kokonaislukuja
-string nimi = "Maija"; // nimi-muuttujaan voi tallentaa merkkijonoja
-bool onkoTosi = true; // onkoTosi-muuttujaan voi tallentaa totuusarvoja
-```
-
-**Vakiot.** Vakio on luku-, merkkijono- tai totuusarvotyyppinen muuttuja, jonka arvo vakioidaan käännöksessä, eikä arvoa voi muuttaa ohjelman suorituksen aikana. Vakio määritellään `const`-avainsanalla. Vakion nimi kirjoitetaan suuraakkosilla (sanat erotellaan alaviivalla) tai vaihtoehtoisesti PascalCase-tyyliin.
-
-```csharp
-const int MONTAKO_VIHUA = 10; // all caps -tyyli
-const string TervehdysSana = "Hei"; // PascalCase-tyyli
-```
-
-Huomaa, että oliotietotyypit (esim. `int[]`) ovat viitepohjaisia muuttujia, joten niitä ei voi määritellä `const`-avainsanalla. On olemassa muuttumattomia oliotietotyyppejä (esimerkiksi `ImmutableArray`), mutta emme käsittele niitä tällä kurssilla, joskin `string`-tyyppi tekee tähän poikkeuksen.
 
 ## Sijoitus
 
