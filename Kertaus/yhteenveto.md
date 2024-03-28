@@ -251,7 +251,7 @@ if (a > b)
 }
 ```
 
-**switch-case**-rakenteella voidaan vertailla yhtä muuttujan arvoa useaan eri arvoon.
+**switch-case**-rakenteella voidaan vertailla muuttujia `if-else`-lauseiden tavoin, mutta hieman vähemmällä kirjoittamisella.
 
 ```csharp
 int luku = 47;
