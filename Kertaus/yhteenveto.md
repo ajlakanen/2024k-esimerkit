@@ -273,7 +273,7 @@ switch (luku)
 
 **Toistorakenteilla** voidaan toistaa ohjelman suoritusta niin kauan kuin jokin ehto on voimassa. Toistorakenteita ovat `while`, `do-while`, `for`, ja `foreach`.
 
-Tulostetaan luvut 1-10 käyttäen `while`-silmukkaa.
+Tulostetaan luvut 1-10 käyttäen `while`-silmukkaa ja `for`-silmukkaa.
 
 ```csharp
 int i = 1;
@@ -283,8 +283,6 @@ while (i <= 10)
     i++;
 }
 ```
-
-For-silmukka:
 
 ```csharp
 for (int i = 1; i <= 10; i++)
