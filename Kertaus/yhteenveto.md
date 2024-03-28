@@ -3,6 +3,8 @@
 Tässä dokumentissa käydään läpi Ohjelmointi 1 -kurssin keskeisiä asioita. Dokumentti on tarkoitettu kertaukseksi ja toisaalta apuvälineeksi kurssin jälkeiseen ohjelmointiin. Dokumentti ei ole täydellinen, eikä se sisällä kaikkea kurssilla käytyä asiaa. Esimerkit ovat valikoituja, ja kattavat vain osan kurssin aiheista. Koko kurssimateriaali on luettavissa [ Ohjelmointi 1 -kurssin monisteesta](https://tim.jyu.fi/view/kurssit/tie/ohj1/yleinen) sekä
 [monisteen täydennyksistä](https://tim.jyu.fi/view/kurssit/tie/ohj1/materiaali/monisteenTaydennykset).
 
+Jos löydät tästä dokumentista virheitä tai haluat antaa parannusehdotuksen, [tee ns. issue tähän repoon](https://gitlab.jyu.fi/tie/ohj1/2024k/esimerkit/-/issues/new?issuable_template=kertaus).
+
 ## Lauseiden suorittaminen
 
 Lauseet ovat ohjelman perusyksiköitä, jotka suoritetaan yksi kerrallaan. Lause voi olla esimerkiksi muuttujan määrittely, aliohjelman kutsu, ehto- tai toistolause.
