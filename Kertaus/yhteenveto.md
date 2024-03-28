@@ -70,11 +70,11 @@ Ohjelma on käännettävä aina koodin muuttamisen jälkeen, jotta muutokset tul
 
 ## Käännösvirheet
 
-Kääntämisen yhteydessä ohjelmakoodi tarkistetaan virheiden varalta. Jos koodissa on virheitä, kääntäminen ei onnistu eikä ohjelmaa voi ajaa. Virheet on korjattava ennen uutta kääntämistä.
+Ohjelma ei käänny, jos se sisältää käännöksen estäviä virheitä, niin sanottuja syntaksivirheitä. Tällöin kääntäminen ei onnistu eikä ohjelmaa voi ajaa. Virheet on korjattava ennen uutta kääntämistä. Huomaa, että kääntäjä ei havaitse muita virheitä, kuten loogisia virheitä, joskin nykyaikaiset IDE:t auttavat niiden havaitsemisessa.
 
 ## Muuttujat ja vakiot
 
-**Ohjelman tila määritellään muuttujiin.** Muuttujat ovat ohjelmassa käytettäviä arvoja, joiden arvoa ohjelmoija voi muuttaa ohjelman suorituksen aikana. Niinpä voidaan sanoa, että muuttuja on ohjelman tilassa oleva arvo, ja jos muuttujan arvoa muutetaan, muuttuu ohjelman tila.
+**Ohjelman tila määritellään muuttujiin.** Muuttujat ovat ohjelmassa käytettäviä arvoja, joiden arvo voi muuttua ohjelman suorituksen aikana. Niinpä voidaan sanoa, että ohjelman tila koostuu muuttujissa olevista arvoista. Jos muuttujan arvo muuttuu (esimerkiksi käyttäjän vuorovaikutuksen seurauksena), muuttuu ohjelman tila.
 
 **Muuttuja on määriteltävä (nimi, tyyppi) ennen käyttöä.** Muuttujan tyyppi määrittää, millaisia arvoja siihen voi tallentaa. Muuttujat tulee nimetä kuvaavasti. Nimeämisessä käytetään camelCase-tyyliä.
 
