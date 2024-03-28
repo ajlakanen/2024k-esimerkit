@@ -1,4 +1,3 @@
 Parannusehdotus kertausmateriaaliin:
 
-asdf
-
+(Poista nämä rivit ja kirjoita tähän parannusehdotuksesi tai kysymyksesi.)
