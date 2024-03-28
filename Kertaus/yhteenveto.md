@@ -251,7 +251,7 @@ if (a > b)
 }
 ```
 
-**switch-case**-rakenteella voidaan vertailla muuttujia `if-else`-lauseiden tavoin, mutta hieman vähemmällä kirjoittamisella.
+**switch-case**-rakenteella voidaan vertailla muuttujaa `if-else`-lauseiden tavoin, mutta hieman vähemmällä kirjoittamisella.
 
 ```csharp
 int luku = 47;
@@ -271,9 +271,7 @@ switch (luku)
 
 ## Toistorakenteet
 
-**Toistorakenteilla** voidaan toistaa ohjelman suoritusta niin kauan kuin jokin ehto on voimassa.
-
-Toistorakenteita ovat `while`, `do-while`, `for`, `for-each` ja `foreach`.
+**Toistorakenteilla** voidaan toistaa ohjelman suoritusta niin kauan kuin jokin ehto on voimassa. Toistorakenteita ovat `while`, `do-while`, `for`, ja `foreach`.
 
 Tulostetaan luvut 1-10 käyttäen `while`-silmukkaa.
 
