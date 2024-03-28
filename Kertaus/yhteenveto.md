@@ -337,7 +337,7 @@ for (int i = 1; i <= 10; i++)
 }
 ```
 
-## Taulukot
+## Taulukko
 
 _Taulukko_ on järjestetty joukko yhden tyyppisiä asioita. Taulukko luodaan määrittelemällä taulukon tyyppi ja koko.
 
@@ -377,6 +377,19 @@ for (int i = 0; i < luvut.Length; i++)
       summa += luvut[i];
 }
 Console.WriteLine(summa); // Tulostaa 24
+```
+
+Yksi esimerkki taulukon käyttämisestä on merkkijonojen pilkkominen. Erotinmerkillä (esim. pilkku) varustettu merkkijono voidaan pilkkoa `Split`-metodilla, joka palauttaa taulukon, jossa on alkuperäisen merkkijonon osat.
+
+```csharp
+string teksti = "Maija,Matti,Anna";
+string[] nimet = teksti.Split(',');
+// nimet-taulukossa on kolme alkiota:
+// "Maija", "Matti" ja "Anna"
+foreach (string nimi in nimet)
+{
+    Console.WriteLine(nimi);
+}
 ```
 
 **Moniulotteiset taulukot.** Taulukossa voi olla useampi kuin yksi ulottuvuus. Tällä kurssilla rajoitumme kahden ulottuvuuden taulukoihin, joita kutsutaan myös _matriiseiksi_.
@@ -426,7 +439,7 @@ int koko = luvut.Count; // 2
 
 ## Sanakirja
 
-**Sanakirja** on tietorakenne, joka koostuu avain-arvo -pareista. Sanakirjaan voi tallentaa arvoja avaimen perusteella. Sanakirja luodaan määrittelemällä avaimen ja arvon tyypit.
+**Sanakirja** on tietorakenne, joka koostuu avain-arvo-pareista. Sanakirja luodaan määrittelemällä avaimen ja arvon tyypit.
 
 ```csharp
 Dictionary<string, int> sanakirja = new Dictionary<string, int>();
@@ -453,19 +466,6 @@ Sanakirjan alkiot voidaan käydä läpi `foreach`-silmukalla.
 foreach (KeyValuePair<string, int> pari in sanakirja)
 {
     Console.WriteLine($"{pari.Key}: {pari.Value}");
-}
-```
-
-## Merkkijonojen pilkkominen
-
-Merkkijonoja voidaan pilkkoa `Split`-metodilla. Metodi palauttaa taulukon, jossa on alkuperäisen merkkijonon osat.
-
-```csharp
-string teksti = "Maija,Matti,Anna";
-string[] nimet = teksti.Split(',');
-foreach (string nimi in nimet)
-{
-    Console.WriteLine(nimi);
 }
 ```
 
