@@ -216,7 +216,7 @@ public static void ToinenAliohjelma()
 }
 ```
 
-Näkyvyys, lisätietoa: [Muuttujien näkyvyys](https://tim.jyu.fi/view/kurssit/tie/ohj1/materiaali/MuuttujienNakyvyys)
+Lisätietoa: [Muuttujien näkyvyys](https://tim.jyu.fi/view/kurssit/tie/ohj1/materiaali/MuuttujienNakyvyys)
 
 ## Merkkijonot
 
